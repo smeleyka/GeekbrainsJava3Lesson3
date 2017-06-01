@@ -1,4 +1,4 @@
 abcdefg
 ABCDEFG
-абвгдеё
-АБВГДЕЁ
+hijklmnop
+HIJKLMNOP
