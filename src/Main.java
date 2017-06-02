@@ -1,7 +1,5 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * Created by admin on 31.05.2017.
@@ -45,6 +43,15 @@ public class Main {
         filesVector.add(fi3);
         filesVector.add(fi4);
         filesVector.add(fi5);
+
+        ArrayList<FileInputStream> filesArrayList = new ArrayList<>();
+        filesArrayList.add(fi1);
+        filesArrayList.add(fi2);
+        filesArrayList.add(fi3);
+        filesArrayList.add(fi4);
+        filesArrayList.add(fi5);
+
+        SequenceInputStream seqArLi = new SequenceInputStream(Collections.enumeration(filesArrayList));
 
         Enumeration<FileInputStream> e = filesVector.elements();
         SequenceInputStream seq = new SequenceInputStream(e);
