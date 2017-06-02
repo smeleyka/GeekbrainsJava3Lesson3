@@ -27,6 +27,8 @@ public class Main {
         File f = new File("test.txt");
         byte[] br = new byte[(int) f.length()];
         FileInputStream in = new FileInputStream(f);
+       // BufferedReader di1 = new BufferedReader(new InputStreamReader(fi1,"UTF-8"));
+
         in.read(br);
         System.out.print(Arrays.toString(br));
     }
@@ -38,8 +40,6 @@ public class Main {
         FileInputStream fi4 = new FileInputStream("test4.txt");
         FileInputStream fi5 = new FileInputStream("test5.txt");
 
-        BufferedInputStream di1 = new BufferedInputStream(new InputStreamReader(fi1,"UTF-8"));
-
         Vector<FileInputStream> filesVector = new Vector();
         filesVector.add(fi1);
         filesVector.add(fi2);
@@ -48,12 +48,15 @@ public class Main {
 
         Enumeration<FileInputStream> e = filesVector.elements();
         SequenceInputStream seq = new SequenceInputStream(e);
+        InputStreamReader isreader = new InputStreamReader(seq,"UTF-8");
         FileOutputStream fout = new FileOutputStream("output.txt");
+        OutputStreamWriter outwriter = new OutputStreamWriter(fout,"UTF-8");
         int x;
-        while ((x=seq.read()) != -1){
+        while ((x=isreader.read()) != -1){
             System.out.print((char)x);
-            fout.write(x);
-
+            outwriter.write(x);
         }
+        isreader.close();
+        outwriter.close();
     }
 }

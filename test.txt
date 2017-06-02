@@ -2,3 +2,4 @@ abcdefg
 ABCDEFG
 hijklmnop
 HIJKLMNOP
+АБВГД
